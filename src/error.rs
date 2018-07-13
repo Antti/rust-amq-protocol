@@ -1,3 +1,9 @@
+impl From<::std::io::Error> for Error {
+    fn from(s: ::std::io::Error) -> Self {
+        s.into()
+    }
+}
+
 error_chain! {
     errors {
         Protocol(t: String) {
