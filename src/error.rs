@@ -1,3 +1,4 @@
+#[cfg(windows)]
 impl From<::std::io::Error> for Error {
     fn from(s: ::std::io::Error) -> Self {
         s.into()
