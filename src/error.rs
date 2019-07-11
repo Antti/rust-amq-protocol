@@ -1,10 +1,3 @@
-#[cfg(windows)]
-impl From<::std::io::Error> for Error {
-    fn from(s: ::std::io::Error) -> Self {
-        s.into()
-    }
-}
-
 error_chain! {
     errors {
         Protocol(t: String) {
@@ -14,6 +7,6 @@ error_chain! {
     }
 
     foreign_links {
-        Io(::std::io::Error) #[cfg(unix)];
+        Io(::std::io::Error) #[cfg(any(unix, windows))];
     }
 }
